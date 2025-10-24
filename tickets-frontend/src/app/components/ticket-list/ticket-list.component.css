@@ -1,0 +1,232 @@
+/* Container principal */
+.ticket-container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(145deg, #f9fbff, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.08);
+  animation: fadeIn 0.8s ease-in-out;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d47a1;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.header h2::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #1976d2;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+.btn-create {
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  color: #fff;
+  padding: 0.7rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-create:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(25, 118, 210, 0.4);
+}
+
+/* Filter */
+.filter {
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.filter label {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+.filter select {
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1.5px solid #cfe2ff;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.filter select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 6px rgba(25, 118, 210, 0.2);
+}
+
+/* No tickets */
+.no-tickets {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-top: 3rem;
+}
+
+/* Ticket grid */
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Ticket card */
+.ticket-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  transition: width 0.4s ease;
+}
+
+.ticket-card:hover::before {
+  width: 100%;
+}
+
+/* Ticket header */
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-header h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0d47a1;
+  margin: 0;
+}
+
+.ticket-header .date {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Description */
+.description {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Status badges */
+.status {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.status.ouvert { background-color: #e3f2fd; color: #1976d2; }
+.status.en_cours { background-color: #fff3cd; color: #856404; }
+.status.resolu { background-color: #d0f0c0; color: #2e7d32; }
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.btn-edit, .btn-delete {
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-edit { background: #1976d2; color: white; }
+.btn-edit:hover { background: #1565c0; }
+.btn-delete { background: #d32f2f; color: white; }
+.btn-delete:hover { background: #c62828; }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.pagination button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pagination button:hover { background-color: #1565c0; transform: translateY(-1px); }
+.pagination button:disabled { background-color: #ccc; cursor: not-allowed; }
+.pagination span { color: #333; font-size: 1rem; }

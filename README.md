@@ -38,7 +38,7 @@ php artisan migrate
 Lance le serveur :
 php artisan serve
 
-####Frontend (Angular)
+####Frontend (Angular)###
 Ouvre un terminal dans le dossier frontend
 
 Installe les dépendances :

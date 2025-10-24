@@ -15,7 +15,7 @@ mon-projet/
 
 - PHP >= 8.1, Composer
 - Node.js >= 18, Angular CLI
-- Base de données MySQL ou PostgreSQL
+- Base de données MySQL 
 
 ## Installation
 
@@ -53,7 +53,5 @@ Créer, modifier, supprimer des tickets
 Filtrage par statut (ouvert, en cours, résolu)
 
 Pagination (4 tickets par page)
-
-Upload de fichiers pour chaque ticket
 
 Notifications visuelles de succès ou d’erreur

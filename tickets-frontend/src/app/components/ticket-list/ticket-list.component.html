@@ -1,0 +1,49 @@
+<div class="ticket-container">
+  <div class="header">
+    <h2> Gestion des Tickets</h2>
+    <a class="btn btn-primary" routerLink="/create">+ Nouveau Ticket</a>
+  </div>
+
+  <div class="filter">
+    <label for="statusFilter">Filtrer par statut :</label>
+    <select id="statusFilter" (change)="onFilterChange($any($event.target).value)">
+      <option value="">Tous</option>
+      <option value="ouvert">Ouvert</option>
+      <option value="en_cours">En cours</option>
+      <option value="resolu">Résolu</option>
+    </select>
+  </div>
+
+  <div *ngIf="tickets.length === 0" class="no-tickets">
+    <p>Aucun ticket trouvé 😕</p>
+  </div>
+  
+
+  <!-- Affiche uniquement 4 tickets par page -->
+  <div class="ticket-grid">
+    <div *ngFor="let t of paginatedTickets" class="ticket-card">
+      <div class="ticket-header">
+        <h4>{{ t.title }}</h4>
+        <span class="date">{{ t.created_at | date:'short' }}</span>
+      </div>
+
+      <p class="description">{{ t.description }}</p>
+
+      <div class="status" [ngClass]="t.status">{{ t.status }}</div>
+
+      <div class="actions">
+        <a class="btn btn-edit" [routerLink]="['/edit', t.id]">✏️ Éditer</a>
+        <button class="btn btn-delete" (click)="deleteTicket(t.id)">🗑️ Supprimer</button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ✅ Pagination -->
+  <div *ngIf="totalPages > 1" class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">◀ Précédent</button>
+
+    <span>Page {{ currentPage }} / {{ totalPages }}</span>
+
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant ▶</button>
+  </div>
+</div>
